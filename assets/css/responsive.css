@@ -1,0 +1,1204 @@
+/* ==========================================================================
+   assets/css/responsive.css — StudyMaze Multi-Device Responsive Stylesheet
+   Compatible with:
+     - Desktops & Laptops (1440px+, 1280px, 1024px)
+     - Tablets & iPads (iPad Pro 12.9"/11", iPad Air, iPad 10.2", iPad mini)
+     - Mobile Phones (Large phones, medium phones, standard phones ≤600px)
+     - Very Small & Ultra-Narrow Screens (320px, 300px, 280px, down to 240px)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Global Root & Viewport Safety
+   -------------------------------------------------------------------------- */
+html {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  min-width: 0; /* Fully fluid — adapts seamlessly down to ultra-small screens */
+}
+
+img, svg, video, canvas, audio, iframe {
+  max-width: 100%;
+}
+
+
+/* ==========================================================================
+   ≤ 1280px — Small Laptops / Landscape Tablets
+   ========================================================================== */
+@media (max-width: 1280px) {
+  .main-content {
+    max-width: 100%;
+    padding: 28px 24px 56px;
+  }
+
+  .subjects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  }
+}
+
+
+/* ==========================================================================
+   ≤ 1024px — iPad Landscape & Tablets
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .main-content {
+    padding: 24px 20px 48px;
+  }
+
+  /* Compact Navbar for tablet landscape */
+  .navbar {
+    padding: 0 18px;
+  }
+
+  .nav-links {
+    gap: 4px;
+  }
+
+  .nav-link {
+    padding: 7px 10px;
+    font-size: 0.86rem;
+  }
+
+  .nav-link i, .nav-link svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Profile dropdown button - hide text on tablet if needed */
+  .profile-btn {
+    padding: 6px 10px;
+    font-size: 0.84rem;
+  }
+
+  /* Dashboard & Analytics Layouts */
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .dashboard-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .analytics-charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Subjects & Themes */
+  .subjects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 16px;
+  }
+
+  .themes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Settings Timer Grid */
+  .timer-settings-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+
+/* ==========================================================================
+   ≤ 900px — iPad Portrait & All Mid-Size Tablets (iPad 10.2", Air, Pro 11")
+   ========================================================================== */
+@media (max-width: 900px) {
+  /* ------------------------------------------------------------------
+     TOP NAVIGATION HEADER — Mobile Sidebar / Hamburger Mode
+     Desktop nav tabs are hidden; hamburger opens slide-in drawer.
+     ------------------------------------------------------------------ */
+  .navbar {
+    height: auto;
+    min-height: 56px;
+    padding: 8px 16px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  /* Hide horizontal desktop nav tabs on mobile/tablet */
+  .navbar-nav,
+  .navbar-nav-desktop {
+    display: none !important;
+  }
+
+  /* Show the hamburger button */
+  .nav-hamburger-btn {
+    display: inline-flex !important;
+  }
+
+  /* Brand wrapper (hamburger + logo) */
+  .navbar-brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .navbar-brand {
+    order: initial;
+    flex-shrink: 0;
+  }
+
+  .nav-controls {
+    order: initial;
+    margin-left: auto;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Profile button: show avatar only on tablet/mobile */
+  .profile-name-text {
+    display: none;
+  }
+
+  .profile-btn {
+    padding: 4px 6px;
+    gap: 4px;
+  }
+
+  .profile-btn i, .profile-btn svg {
+    display: none;
+  }
+
+  /* ------------------------------------------------------------------
+     PAGE HEADERS
+     ------------------------------------------------------------------ */
+  .page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .page-header-left {
+    width: 100%;
+  }
+
+  .page-header-right {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .page-title {
+    font-size: 1.6rem;
+    line-height: 1.25;
+    word-break: break-word;
+  }
+
+  .page-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+
+/* ==========================================================================
+   ≤ 768px — Small Tablets & Large Phones (Phablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 18px 16px 44px;
+  }
+
+  /* Page Headers */
+  .page-header {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .quote-banner-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-top: 4px;
+  }
+
+  /* Header action button stretches full width on mobile */
+  .page-header > .btn-primary,
+  .page-header > .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 18px;
+    font-size: 0.92rem;
+  }
+
+  /* History total badge fills row */
+  .history-total-card {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 10px 14px !important;
+  }
+
+  /* Analytics Filter Pills in page header */
+  #analyticsFilterPills {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px;
+    justify-content: flex-start;
+  }
+
+  #analyticsFilterPills::-webkit-scrollbar {
+    display: none;
+  }
+
+  #analyticsFilterPills .mode-pill {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 6px 14px;
+    font-size: 0.84rem;
+  }
+
+  /* Themes page mode switch in header */
+  .page-header .timer-modes {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Ready to Study Banner */
+  .ready-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 16px 18px;
+    text-align: left;
+  }
+
+  .ready-banner .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Timer Page */
+  .timer-dial-wrapper {
+    width: 270px;
+    height: 270px;
+  }
+
+  .timer-digits {
+    font-size: 3.2rem;
+  }
+
+  .timer-actions {
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .timer-tools {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+
+  .tool-btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .duration-pills {
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+  }
+
+  .sounds-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Tasks Page */
+  .task-card {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .task-left {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .task-title {
+    font-size: 0.92rem;
+    word-break: break-word;
+  }
+
+  .task-meta {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .task-right {
+    flex-shrink: 0;
+    gap: 6px;
+  }
+
+  /* History Page */
+  .history-filters {
+    gap: 8px;
+  }
+
+  .filter-select {
+    flex: 1 1 140px;
+  }
+
+  .history-item {
+    padding: 10px 14px;
+  }
+
+  /* Settings Page */
+  .timer-settings-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Chart Footer Stats in Dashboard */
+  #chartFooterStats {
+    flex-wrap: wrap;
+    gap: 10px 20px !important;
+  }
+
+  /* Modals */
+  .modal-backdrop {
+    padding: 14px;
+  }
+
+  .modal-card {
+    max-width: 100%;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+
+/* ==========================================================================
+   Touch Device Base Hit Target Minimums (overridden by tiny-screen rules)
+   ========================================================================== */
+@media (max-width: 768px), (pointer: coarse) {
+  .nav-link,
+  .nav-btn,
+  .profile-btn,
+  .btn-primary,
+  .btn-secondary,
+  .tool-btn,
+  .duration-pill,
+  .mode-pill,
+  .menu-item,
+  .filter-select,
+  .form-input,
+  .form-select,
+  .form-textarea,
+  .task-checkbox {
+    min-height: 40px;
+  }
+
+  .icon-btn,
+  .btn-timer-secondary {
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .color-option {
+    min-width: 30px;
+    min-height: 30px;
+  }
+}
+
+
+/* ==========================================================================
+   ≤ 600px — Standard Mobile Phones
+   ========================================================================== */
+@media (max-width: 600px) {
+  .main-content {
+    padding: 14px 12px 40px;
+  }
+
+  .page-title {
+    font-size: 1.4rem;
+  }
+
+  /* Dashboard Metrics — Single Column */
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .metric-card {
+    padding: 14px 16px;
+  }
+
+  .metric-value {
+    font-size: 1.65rem;
+  }
+
+  /* Goal card */
+  .goal-card {
+    padding: 16px;
+  }
+
+  /* Subjects Grid — Single Column on Phones */
+  .subjects-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .subject-card {
+    padding: 16px;
+    min-height: auto;
+  }
+
+  /* Timer Controls */
+  .timer-modes {
+    display: flex;
+    overflow-x: auto;
+    max-width: 100%;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 3px;
+    border-radius: var(--radius-full);
+  }
+
+  .timer-modes::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mode-pill {
+    padding: 6px 12px;
+    font-size: 0.82rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .btn-timer-primary {
+    width: 58px;
+    height: 58px;
+  }
+
+  .btn-timer-secondary {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* History Filters Stacking */
+  .history-filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+
+  .history-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .history-item-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* Cards Padding */
+  .card {
+    padding: 16px 14px;
+  }
+
+  /* Mobile Sheet Style Modals */
+  .modal-backdrop {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal-card {
+    max-width: 100%;
+    width: 100%;
+    max-height: 85vh;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 20px 16px;
+    animation: modalSheetUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Auth Screens */
+  .auth-wrapper {
+    padding: 16px 12px;
+    justify-content: flex-start;
+    padding-top: 32px;
+  }
+
+  .auth-card {
+    padding: 24px 18px;
+    border-radius: var(--radius-md);
+  }
+
+  .auth-header h1,
+  .auth-header h2 {
+    font-size: 1.35rem;
+  }
+
+  .auth-header p {
+    font-size: 0.88rem;
+  }
+}
+
+
+/* ==========================================================================
+   ≤ 480px — Small Mobile Phones
+   ========================================================================== */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 12px 6px;
+  }
+
+  .brand-name {
+    font-size: 1.18rem;
+  }
+
+  .nav-btn {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+  }
+
+  .page-title {
+    font-size: 1.35rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.85rem;
+  }
+
+  /* Timer Dial Scaling */
+  .timer-dial-wrapper {
+    width: 236px;
+    height: 236px;
+  }
+
+  .timer-digits {
+    font-size: 2.7rem;
+  }
+
+  /* Analytics Heatmap on Small Phones */
+  #activityGrid {
+    gap: 4px !important;
+  }
+
+  #activityGrid > div {
+    height: 20px !important;
+  }
+
+  #heatmapLegend {
+    font-size: 0.78rem;
+    gap: 4px;
+  }
+
+  /* Sounds Drawer */
+  .sounds-drawer {
+    padding: 14px;
+  }
+
+  .sounds-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .sounds-volume-ctrl {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .volume-slider {
+    flex: 1;
+    max-width: 160px;
+  }
+
+  .sounds-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  /* Task Card Actions */
+  .task-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .task-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  /* Color Palette in Subject Modal */
+  .color-picker-palette {
+    gap: 8px;
+  }
+
+  .color-option {
+    width: 26px;
+    height: 26px;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+
+  .modal-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* ==========================================================================
+   ≤ 360px — Tiny Mobile Screens (iPhone SE 1st gen, Galaxy A series)
+   ========================================================================== */
+@media (max-width: 360px) {
+  .navbar {
+    padding: 6px 10px 6px;
+  }
+
+  .brand-name {
+    font-size: 1.05rem;
+  }
+
+  .brand-logo-icon {
+    height: 18px;
+  }
+
+  .brand-bar-1 {
+    width: 4px;
+    height: 16px;
+  }
+
+  .brand-bar-2 {
+    width: 4px;
+    height: 11px;
+  }
+
+  .nav-link {
+    font-size: 0.78rem;
+    padding: 5px 8px;
+    gap: 4px;
+  }
+
+  .nav-btn {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    min-height: 34px;
+  }
+
+  .nav-hamburger-btn {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    min-height: 34px;
+  }
+
+  .nav-hamburger-btn svg,
+  .nav-hamburger-btn i {
+    width: 17px;
+    height: 17px;
+  }
+
+  .profile-btn {
+    height: 34px;
+    min-height: 34px;
+    padding: 2px 4px;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+  }
+
+  .auth-header h1,
+  .auth-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .auth-header p {
+    font-size: 0.82rem;
+  }
+
+  /* Timer dial */
+  .timer-dial-wrapper {
+    width: 195px;
+    height: 195px;
+  }
+
+  .timer-digits {
+    font-size: 2.2rem;
+  }
+
+  .metric-card {
+    padding: 12px;
+  }
+
+  .metric-value {
+    font-size: 1.4rem;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  .auth-card {
+    padding: 18px 12px;
+  }
+}
+
+
+/* ==========================================================================
+   ≤ 320px — Very Small Screens (Narrow Viewports & Side-Docked DevTools)
+   ========================================================================== */
+@media (max-width: 320px) {
+  .main-content {
+    padding: 12px 8px 36px;
+  }
+
+  /* Top Navbar Row 1 */
+  .navbar {
+    padding: 6px 8px 6px;
+    row-gap: 6px;
+  }
+
+  .brand-name {
+    font-size: 1.02rem;
+  }
+
+  .nav-controls {
+    gap: 6px;
+  }
+
+  .nav-btn {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+  }
+
+  .nav-btn svg, .nav-btn i {
+    width: 15px;
+    height: 15px;
+  }
+
+  .profile-btn {
+    height: 32px;
+    min-height: 32px;
+    min-width: 32px;
+    padding: 2px 4px;
+  }
+
+  .profile-avatar-circle {
+    width: 22px;
+    height: 22px;
+    font-size: 0.72rem;
+  }
+
+  /* Top Navbar Row 2 (Tabs) */
+  .nav-links {
+    gap: 4px;
+    padding: 2px 0 4px;
+  }
+
+  .nav-link {
+    font-size: 0.76rem;
+    padding: 5px 8px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Page Header */
+  .page-header {
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .page-header-left .date-badge {
+    font-size: 0.78rem;
+  }
+
+  .page-title {
+    font-size: 1.22rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.82rem;
+  }
+
+  .quote-banner-text {
+    font-size: 0.78rem;
+    line-height: 1.35;
+    margin-top: 3px;
+  }
+
+  /* Ready to Study Banner */
+  .ready-banner {
+    padding: 12px 10px;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .ready-banner h2 {
+    font-size: 1.05rem;
+  }
+
+  .ready-banner p {
+    font-size: 0.8rem;
+  }
+
+  .ready-banner .btn-primary {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  /* Metric Cards */
+  .metric-card {
+    padding: 10px 10px;
+    gap: 3px;
+  }
+
+  .metric-header {
+    font-size: 0.78rem;
+    gap: 6px;
+  }
+
+  .metric-header svg, .metric-header i {
+    width: 14px;
+    height: 14px;
+  }
+
+  .metric-value {
+    font-size: 1.35rem;
+  }
+
+  .metric-subtext {
+    font-size: 0.74rem;
+  }
+
+  /* Goal Card */
+  .goal-card {
+    padding: 10px 10px;
+  }
+
+  .goal-info {
+    font-size: 0.8rem;
+  }
+
+  .goal-percentage {
+    font-size: 0.9rem;
+  }
+
+  .goal-subtext {
+    font-size: 0.76rem;
+  }
+
+  /* Chart Footer Stats */
+  #chartFooterStats {
+    flex-direction: column !important;
+    gap: 4px !important;
+    font-size: 0.78rem !important;
+  }
+
+  /* Recent Sessions List */
+  .session-item {
+    padding: 8px 8px;
+  }
+
+  .session-title {
+    font-size: 0.82rem;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .session-duration {
+    font-size: 0.8rem;
+  }
+
+  .session-time {
+    font-size: 0.72rem;
+  }
+
+  /* Card General */
+  .card {
+    padding: 10px 10px;
+  }
+
+  .card-title {
+    font-size: 0.98rem;
+  }
+
+  /* Timer Page */
+  .timer-dial-wrapper {
+    width: 185px;
+    height: 185px;
+  }
+
+  .timer-digits {
+    font-size: 2.05rem;
+  }
+
+  .btn-timer-primary {
+    width: 50px;
+    height: 50px;
+  }
+
+  .btn-timer-secondary {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    min-height: 34px;
+  }
+
+  .duration-pill {
+    padding: 4px 7px;
+    font-size: 0.75rem;
+  }
+
+  .tool-btn {
+    padding: 5px 8px;
+    font-size: 0.76rem;
+  }
+
+  /* Analytics Heatmap */
+  #activityGrid {
+    gap: 2px !important;
+  }
+
+  #activityGrid > div {
+    height: 16px !important;
+    min-width: 0 !important;
+  }
+
+  /* Tasks */
+  .task-card {
+    padding: 8px 8px;
+    gap: 6px;
+  }
+
+  .task-title {
+    font-size: 0.84rem;
+  }
+
+  .task-meta {
+    font-size: 0.72rem;
+    gap: 6px;
+  }
+
+  /* History */
+  .history-item {
+    padding: 8px 6px;
+  }
+
+  .history-item-left {
+    font-size: 0.82rem;
+  }
+
+  /* Modals */
+  .modal-card {
+    padding: 14px 10px;
+  }
+
+  .auth-wrapper {
+    padding: 10px 6px 20px;
+  }
+
+  .auth-card {
+    padding: 16px 10px;
+  }
+}
+
+
+/* ==========================================================================
+   ≤ 280px — Ultra-Narrow Viewports (Galaxy Fold cover screen down to 240px)
+   ========================================================================== */
+@media (max-width: 280px) {
+  .main-content {
+    padding: 8px 4px 28px;
+  }
+
+  /* Top Navbar */
+  .navbar {
+    padding: 4px 6px 4px;
+    row-gap: 4px;
+  }
+
+  .brand-name {
+    font-size: 0.92rem;
+  }
+
+  .brand-logo-icon {
+    height: 16px;
+  }
+
+  .brand-bar-1 {
+    width: 3px;
+    height: 14px;
+  }
+
+  .brand-bar-2 {
+    width: 3px;
+    height: 10px;
+  }
+
+  .nav-controls {
+    gap: 4px;
+  }
+
+  .nav-btn {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    min-height: 28px;
+  }
+
+  .nav-btn svg, .nav-btn i {
+    width: 13px;
+    height: 13px;
+  }
+
+  .nav-hamburger-btn {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    min-height: 28px;
+  }
+
+  .nav-hamburger-btn svg,
+  .nav-hamburger-btn i {
+    width: 14px;
+    height: 14px;
+  }
+
+  .profile-btn {
+    height: 28px;
+    min-height: 28px;
+    min-width: 28px;
+    padding: 2px;
+  }
+
+  .profile-avatar-circle {
+    width: 20px;
+    height: 20px;
+    font-size: 0.65rem;
+  }
+
+  .nav-link {
+    font-size: 0.72rem;
+    padding: 4px 6px;
+  }
+
+  /* Page Header */
+  .page-title {
+    font-size: 1.15rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.78rem;
+  }
+
+  .ready-banner {
+    padding: 10px 8px;
+  }
+
+  .ready-banner h2 {
+    font-size: 0.98rem;
+  }
+
+  /* Cards */
+  .card {
+    padding: 8px 6px;
+  }
+
+  .metric-value {
+    font-size: 1.22rem;
+  }
+
+  .session-title {
+    max-width: 95px;
+  }
+
+  /* Timer */
+  .timer-dial-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+
+  .timer-digits {
+    font-size: 1.75rem;
+  }
+
+  .btn-timer-primary {
+    width: 44px;
+    height: 44px;
+  }
+
+  .btn-timer-secondary {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+  }
+
+  .auth-card {
+    padding: 14px 8px;
+  }
+}
+
+
+/* ==========================================================================
+   Keyframes for Sheet-Style Mobile Modals
+   ========================================================================== */
+@keyframes modalSheetUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
